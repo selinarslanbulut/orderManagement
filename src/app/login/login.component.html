@@ -1,14 +1,17 @@
   <div class="login-form">
-    <form>
+    <form [formGroup]="userForm"  method="post">
        <div class="form-group">
           <label>User Name</label>
-          <input type="text" class="form-control" placeholder="User Name">
+          <input type="text" class="form-control" placeholder="User Name" formControlName="userName" required/>
        </div>
        <div class="form-group">
           <label>Password</label>
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" formControlName="password" required/>
        </div>
        <button type="submit" class="btn btn-secondary" (click)="registerClick()">Register</button>
-       <button type="submit" class="btn btn-black">Login</button>
+<!--
+       <button type="submit" class="btn btn-black" [disabled]="disabledCheck()" (click)="loginClick()">Login</button>
+-->
+       <button type="submit" class="btn btn-black" [disabled]="userForm.invalid" (click)="loginClick()">Login</button>
     </form>
  </div>
