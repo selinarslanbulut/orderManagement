@@ -8,8 +8,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  // bir büyük harf, bir küçük harf ve bir sayı veya özel karakter olmak üzere sekiz karakter
-  private passwordRegex = /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"/;
+  //örnek şifre : 12qw!"QW12
+  private passwordRegex = /^(?=\S*[a-z])(?=\S*[A-Z])(?=\S*\d)(?=\S*[^\w\s])\S{8,}$/;
 
   constructor(
     private router: Router,
@@ -25,18 +25,22 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       userName: [null, Validators.required],
-      password: [null, Validators.required],
+      password: [
+        null,
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.maxLength(12),
+          //Validators.pattern(this.passwordRegex), // şifreyi doğrulayabilmek için.
+        ],
+      ],
       confirmPassword: [null, Validators.required],
       userType:[null, Validators.required],
-      passwordRegex: Validators.pattern(this.passwordRegex),
-
     });
   }
 
   registerClick(){
-    console.log(this.registerForm.get("userType"))
+    console.log(this.registerForm.get("userType"));
     this.router.navigate(['login']);
-
   }
-
 }
