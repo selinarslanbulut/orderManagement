@@ -32,6 +32,9 @@ export class RegisterComponent implements OnInit {
           Validators.minLength(8),
           Validators.maxLength(12),
           //Validators.pattern(this.passwordRegex), // şifreyi doğrulayabilmek için.
+          Validators.compose([
+            Validators.pattern("^(?=\\S*[a-z])(?=\\S*[A-Z])(?=\\S*\\d)(?=\\S*[^\\w\\s])\\S{8,}$")
+          ])
         ],
       ],
       confirmPassword: [null, Validators.required],

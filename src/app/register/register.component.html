@@ -6,9 +6,15 @@
     </div>
     <div class="form-group">
       <label>Password</label>
-      <input type="password" class="form-control" placeholder="Password" formControlName="password" required />
+      <input
+        type="password"
+        class="form-control"
+        placeholder="Password"
+        formControlName="password"
+        required
+      />
     </div>
-    <div class="form-group">
+    <div class="form-group" *ngIf="registerForm">
       <label>Confirm Password</label>
       <input
         type="password"
@@ -20,11 +26,18 @@
     </div>
     <div class="form-group">
         <label>User Type</label>
-        <select class="form-select" formControlName="userType" >
+        <select
+          class="form-select" formControlName="userType" >
             <option value="user">User</option>
             <option value="admin">Admin</option>
           </select>
       </div>
-    <button type="submit" class="btn btn-black" [disabled]="registerForm.invalid" (click)="registerClick()">Register</button>
+    <button
+      type="submit"
+      class="btn btn-black"
+      [disabled]="registerForm.invalid"
+      (click)="registerClick()">
+      Register
+    </button>
   </form>
 </div>
