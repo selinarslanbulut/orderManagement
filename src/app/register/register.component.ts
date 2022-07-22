@@ -35,6 +35,7 @@ export class RegisterComponent implements OnInit {
           Validators.compose([
             Validators.pattern("^(?=\\S*[a-z])(?=\\S*[A-Z])(?=\\S*\\d)(?=\\S*[^\\w\\s])\\S{8,}$")
           ])
+
         ],
       ],
       confirmPassword: [null, Validators.required],
