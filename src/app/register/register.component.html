@@ -1,43 +1,46 @@
-<div class="register-form">
-  <form  [formGroup]="registerForm">
-    <div class="form-group">
-      <label>User Name</label>
-      <input type="text" class="form-control" placeholder="User Name" formControlName="userName" required />
-    </div>
-    <div class="form-group">
-      <label>Password</label>
-      <input
-        type="password"
-        class="form-control"
-        placeholder="Password"
-        formControlName="password"
-        required
-      />
-    </div>
-    <div class="form-group" *ngIf="registerForm">
-      <label>Confirm Password</label>
-      <input
-        type="password"
-        class="form-control"
-        placeholder="Confirm Password"
-        formControlName="confirmPassword"
-        required
-      />
-    </div>
-    <div class="form-group">
-        <label>User Type</label>
-        <select
-          class="form-select" formControlName="userType" >
+<div class="container">
+
+    <div class="register-form">
+      <form [formGroup]="registerForm">
+        <div class="form-group">
+          <label>User Name</label>
+          <input type="text" class="form-control" placeholder="User Name" formControlName="userName" required/>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            formControlName="password"
+            required
+          />
+        </div>
+        <div class="form-group" *ngIf="registerForm">
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Confirm Password"
+            formControlName="confirmPassword"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label>User Type</label>
+          <select class="form-select" formControlName="userType" >
             <option value="user">User</option>
             <option value="admin">Admin</option>
           </select>
-      </div>
-    <button
-      type="submit"
-      class="btn btn-black"
-      [disabled]="registerForm.invalid"
-      (click)="registerClick()">
-      Register
-    </button>
-  </form>
-</div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-secondary"
+          [disabled]="registerForm.invalid"
+          (click)="registerClick()">
+          Register
+        </button>
+      </form>
+    </div>
+  </div>
+

@@ -1,6 +1,8 @@
-  <div class="login-form">
-    <form [formGroup]="userForm"  method="post">
-       <div class="form-group">
+<div class="container">
+
+    <div class="login-form">
+      <form [formGroup]="userForm" method="post">
+        <div class="form-group">
           <label>User Name</label>
           <input
             type="text"
@@ -9,8 +11,8 @@
             formControlName="userName"
             required
           />
-       </div>
-       <div class="form-group">
+        </div>
+        <div class="form-group">
           <label>Password</label>
           <input
             type="password"
@@ -18,22 +20,25 @@
             placeholder="Password"
             formControlName="password"
             required/>
-       </div>
-       <button
-         type="submit"
-         class="btn btn-secondary"
-         (click)="registerClick()">
-         Register
-       </button>
-<!--
-       <button type="submit" class="btn btn-black" [disabled]="disabledCheck()" (click)="loginClick()">Login</button>
--->
-       <button
-         type="submit"
-         class="btn btn-black"
-         [disabled]="userForm.invalid"
-         (click)="loginClick()">
-         Login
-       </button>
-    </form>
- </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-secondary"
+          (click)="registerClick()">
+          Register
+        </button>
+        <!--
+               <button type="submit" class="btn btn-black" [disabled]="disabledCheck()" (click)="loginClick()">Login</button>
+        -->
+        <button
+          type="submit"
+          class="btn btn-secondary"
+          [disabled]="userForm.invalid"
+          (click)="loginClick()">
+          Login
+        </button>
+      </form>
+    </div>
+
+  </div>
+

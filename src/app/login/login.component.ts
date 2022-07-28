@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -36,14 +36,17 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  disabledCheck() : boolean {
+  disabledCheck(): boolean {
     return this.userForm.invalid;
   }
 
-  loginClick(){
+  loginClick() {
     console.log(this.userForm)
     console.log(this.userForm.valid)
     console.log(this.userForm.get('userName')?.value)
     console.log(this.userForm.get('password')?.value)
+    //api çağırıldığında admin ya da user type'ına göre yönlendirme düzenlenecek.
+    this.router.navigate(['dashboard']);
   }
+
 }

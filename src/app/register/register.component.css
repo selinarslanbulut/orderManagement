@@ -1,14 +1,14 @@
 
 .register-form{
-    padding-top: 300px;
-    padding-bottom: 300px;
+    padding-top: 200px;
+    padding-bottom: 200px;
     text-align: center;
 }
 .form-group{
     margin: 20px;
     font-size: 20px;
 }
-.input{
+.form-control{
     font-size: 20px;
 }
 .btn{
@@ -16,7 +16,6 @@
     padding-left: 40px;
     padding-right: 40px;
     font-size: 20px;
-    background-color:white;
 }
 .label{
     width: 100px;
