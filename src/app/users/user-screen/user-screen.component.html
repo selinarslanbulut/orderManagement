@@ -1,0 +1,68 @@
+<div>
+  <div class="container">
+    <div class="row">
+      <div [class]="type === 'admin' ? 'col-6 left' : ''">
+        <div>
+          <table class="table table-borderless table-hover">
+            <thead style="font-size:19px;">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Status</th>
+              <th scope="col">Creation Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+              <td>tarih</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+              <td>tarih</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Larry the Bird</td>
+              <td>Abcdfdfdf</td>
+              <td>@twitter</td>
+              <td>tarih</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+      <div *ngIf="!isADminType" class="col-6 right">
+        <table class="table table-borderless table-hover">
+          <thead style="font-size:19px;">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Status</th>
+            <th scope="col">Creation Date</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>tarih</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
