@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { NgxsModule } from '@ngxs/store';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -13,24 +12,33 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from "@angular/material/table";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import { StateClass } from '@ngxs/store/internals';
+import {NgxsModule} from "@ngxs/store";
+import {UserState} from "../../libs/states/user.state";
+import {environment} from "../environments/environment";
+import {HttpClientModule} from "@angular/common/http";
 
-const STATES: StateClass<any>[] | undefined = []
+//const STATES: StateClass<any>[] | undefined = [UserState]
+const STATES = [UserState]
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
     UserScreenComponent,
-    AdminScreenComponent,
+    AdminScreenComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatTableModule,
     MatCheckboxModule,
-    NgxsModule.forFeature(STATES)
+    NgxsModule.forFeature(STATES),
+    NgxsModule.forRoot([UserState], {
+      developmentMode: !environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
