@@ -37,7 +37,7 @@ export class  UserState{
   inquireUser(
     { patchState }: StateContext<User.State>,
     payload: User.InquireUserRequest) {
-    //payload apiyi çağırırken (new INquireUse) gönderdiğin request
+    //payload apiyi çağırırken (new InquireUser) gönderdiğin request
     //patchState ile response'umuzu state'e atıyoruz. Daha sonra kullanabilmek için
     return this.userService.inquireUser('inquireUser',payload).pipe(
       tap(response => {

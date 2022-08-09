@@ -20,7 +20,7 @@ export namespace User {
     description?: string;
     shortCode?: string;
     isActive?: string;
-    entityCodeName?: string;
+    entityCodeName?: string; //////////////////////
   }
 
   export interface InquireUserRequest{

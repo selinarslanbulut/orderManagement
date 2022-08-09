@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <div class="row">
-        <div *ngIf="isUserType"  class="col-6 left">
+        <div  class="admin-table" *ngIf="entityCodeName === 'admin'" class="col-6 left">
           <div>
             <table  class="table table-borderless table-hover form-group" >
               <thead style="font-size:19px;">
@@ -27,7 +27,7 @@
           </div>
         </div>
 
-        <div *ngIf="!isUserType" class="col-6 right">
+        <div class="col-6 right">
           <table class="table table-borderless table-hover">
             <thead style="font-size:19px;">
             <tr>

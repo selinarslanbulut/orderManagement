@@ -8,6 +8,7 @@ import {
 import {Router} from '@angular/router';
 import {Store} from "@ngxs/store";
 import {InquireUser} from "../../../libs/actions/user.action";
+import {LoginModule } from "./login.module";
 
 @Component({
   selector: 'app-login',
@@ -19,9 +20,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private store: Store
-  ) {
-
-  }
+  ) {}
 
   registerClick() {
     this.router.navigate(['register']);
@@ -55,10 +54,8 @@ export class LoginComponent implements OnInit {
     console.log(this.userForm.get('userName')?.value)
     console.log(this.userForm.get('password')?.value)
     //api çağırıldığında admin ya da user type'ına göre yönlendirme düzenlenecek.
-    //this.router.navigate(['dashboard']);
 
     //api çağırımı
-    console.log(12312312);
     this.store.dispatch(new InquireUser(userLoginRequest)).subscribe((response) =>{
       console.log(response);
       this.router.navigate(['dashboard']);

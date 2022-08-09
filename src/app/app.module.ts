@@ -4,8 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 import { UserScreenComponent } from './users/user-screen/user-screen.component';
 import { AdminScreenComponent } from './users/admin-screen/admin-screen.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,9 +14,26 @@ import {NgxsModule} from "@ngxs/store";
 import {UserState} from "../../libs/states/user.state";
 import {environment} from "../environments/environment";
 import {HttpClientModule} from "@angular/common/http";
+import {RouterModule, Routes} from "@angular/router";
+import {LoginComponent} from "./login/login.component";
+import {RegisterComponent} from "./register/register.component";
 
 //const STATES: StateClass<any>[] | undefined = [UserState]
 const STATES = [UserState]
+
+const appRoutes:Routes =[
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then(m => m.RegisterModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+  },
+
+
+
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,12 +49,14 @@ const STATES = [UserState]
     HttpClientModule,
     BrowserAnimationsModule,
     MatTableModule,
+    RouterModule.forRoot(appRoutes),
     MatCheckboxModule,
     NgxsModule.forFeature(STATES),
     NgxsModule.forRoot([UserState], {
       developmentMode: !environment.production
-    })
+    }),
   ],
+  exports:[],
   providers: [],
   bootstrap: [AppComponent]
 })

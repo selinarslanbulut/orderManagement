@@ -11,7 +11,7 @@ import {UserState} from "../../../../libs/states/user.state";
 })
 export class UserScreenComponent implements OnInit {
   itemForm!: FormGroup;
-  isUserType = true;
+  //isUserType = true;
   tableData = [
     {
       name: "selin",
@@ -39,7 +39,10 @@ export class UserScreenComponent implements OnInit {
   ngOnInit() {
     this.buildForm();
     this.store.dispatch(new GetUserInfo());
-    this.store.selectSnapshot(UserState.user);
+
+    this.store.selectSnapshot(UserState.user); //veriyi okuma işlemi
+
+    //kullanıcı girişinin user mi admin mi olduğununun kontrolü burda yapılacak
   }
 
   get listOfItems(): FormArray {
