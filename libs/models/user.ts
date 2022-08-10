@@ -14,6 +14,8 @@ export namespace User {
   export interface CreateRequest{
     userTypeList: UserTypeList;
   }
+
+  // user api
   export interface UserTypeList{
     userId? : number;
     name? : string;
@@ -30,6 +32,24 @@ export namespace User {
 
   export interface InquireUserResponse {
     userTypeList: UserTypeList;
+    returnCode: string;
+    returnMessage: string;
+  }
+//offer api
+  export  interface  OfferTypeList{
+    id: number;
+    name: string;
+    description: string;
+    status: string;
+    creationDate: Date;
+  }
+
+  export interface inquireOffersRequest{
+    userId: number;
+  }
+
+  export interface  inquireOffersResponse{
+    offerTypeList: OfferTypeList;
     returnCode: string;
     returnMessage: string;
   }

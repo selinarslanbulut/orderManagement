@@ -14,7 +14,8 @@ export class UserScreenComponent implements OnInit {
   }
 
   itemForm!: FormGroup;
-  isUserTypeAdmin: boolean | undefined;
+  isUserTypeAdmin!: boolean;
+  isUserTypeUser!: boolean;
   tableData = [
     {
       name: "selin",
