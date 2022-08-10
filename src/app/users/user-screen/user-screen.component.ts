@@ -10,8 +10,11 @@ import {UserState} from "../../../../libs/states/user.state";
   styleUrls: ['./user-screen.component.css']
 })
 export class UserScreenComponent implements OnInit {
+  constructor(private fb: FormBuilder, private store: Store) {
+  }
+
   itemForm!: FormGroup;
-  //isUserType = true;
+  isUserTypeAdmin: boolean | undefined;
   tableData = [
     {
       name: "selin",
@@ -33,15 +36,13 @@ export class UserScreenComponent implements OnInit {
     }
   ]
 
-  constructor(private fb: FormBuilder, private store: Store) {
-  }
-
   ngOnInit() {
     this.buildForm();
     this.store.dispatch(new GetUserInfo());
 
-    this.store.selectSnapshot(UserState.user); //veriyi okuma işlemi
-
+    const user = this.store.selectSnapshot(UserState.user); //veriyi okuma işlemi
+    this.isUserTypeAdmin = user.userTypeList.entityCodeName === "admin"
+    console.log(this.isUserTypeAdmin)
     //kullanıcı girişinin user mi admin mi olduğununun kontrolü burda yapılacak
   }
 
