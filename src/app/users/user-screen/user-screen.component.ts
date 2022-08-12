@@ -3,6 +3,9 @@ import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {Store} from "@ngxs/store";
 import {GetUserInfo} from "../../../../libs/actions/user.action";
 import {UserState} from "../../../../libs/states/user.state";
+import {Router} from "@angular/router";
+import {GetOfferInfo} from "../../../../libs/actions/offer.action";
+import {OfferState} from "../../../../libs/states/offer.state";
 
 @Component({
   selector: 'app-user-screen',
@@ -10,7 +13,10 @@ import {UserState} from "../../../../libs/states/user.state";
   styleUrls: ['./user-screen.component.css']
 })
 export class UserScreenComponent implements OnInit {
-  constructor(private fb: FormBuilder, private store: Store) {
+  constructor(
+    private fb: FormBuilder,
+    private store: Store,
+    private router: Router) {
   }
 
   itemForm!: FormGroup;
@@ -18,33 +24,49 @@ export class UserScreenComponent implements OnInit {
   isUserTypeUser!: boolean;
   tableData = [
     {
-      name: "selin",
-      description: "abc",
+      name: "Apple",
+      description: "Iphone 13 Pro 256 gb",
       status: "active",
-      creationDate: "01.01.0001"
+      creationDate: "01.01.2022"
     },
     {
-      name: "selin1",
-      description: "def",
+      name: "Oppo",
+      description: "A55 64 Gb",
       status: "active",
-      creationDate: "02.02.0002"
+      creationDate: "02.02.2022"
     },
     {
-      name: "selin2",
-      description: "cvb",
+      name: "Samsung",
+      description: "Galaxy A32 128 Gb",
       status: "active",
-      creationDate: "03.03.0003"
+      creationDate: "03.03.2022"
+    },
+    {
+      name: "Huawei",
+      description: "Nova 9 SE 128 Gb",
+      status: "active",
+      creationDate: "03.03.2022"
+    },
+    {
+      name: "Xiaomi",
+      description: "Redmi 10 64 Gb",
+      status: "active",
+      creationDate: "03.03.2022"
     }
   ]
 
   ngOnInit() {
     this.buildForm();
     this.store.dispatch(new GetUserInfo());
+    this.store.dispatch(new GetOfferInfo());
 
     const user = this.store.selectSnapshot(UserState.user); //veriyi okuma işlemi
     this.isUserTypeAdmin = user.userTypeList.entityCodeName === "admin"
     console.log(this.isUserTypeAdmin)
     //kullanıcı girişinin user mi admin mi olduğununun kontrolü burda yapılacak
+
+    const offer = this.store.selectSnapshot((OfferState.offer)); //veriyi okuma işlemi
+
   }
 
   get listOfItems(): FormArray {
@@ -76,5 +98,9 @@ export class UserScreenComponent implements OnInit {
     //   )
     // )
     console.log(this.itemForm)
+  }
+
+  selectedOfferClick() {
+    this.router.navigate(['selectedOffer']);
   }
 }
