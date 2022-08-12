@@ -17,6 +17,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {RouterModule, Routes} from "@angular/router";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
+import { SelectedOfferPageComponent } from './selected-offer-page/selected-offer-page.component';
 
 //const STATES: StateClass<any>[] | undefined = [UserState]
 const STATES = [UserState]
@@ -40,7 +41,8 @@ const appRoutes:Routes =[
     LoginComponent,
     RegisterComponent,
     UserScreenComponent,
-    AdminScreenComponent
+    AdminScreenComponent,
+    SelectedOfferPageComponent
   ],
   imports: [
     BrowserModule,

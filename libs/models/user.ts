@@ -1,5 +1,6 @@
 import {StoreOptions} from "@ngxs/store/src/symbols";
 
+
 export namespace User {
   export const NAME = 'UserState';
   export const DEFAULTS = {
@@ -11,6 +12,7 @@ export namespace User {
     inquireUserData: InquireUserResponse;
     result:any;
   }
+
   export interface CreateRequest{
     userTypeList: UserTypeList;
   }
@@ -35,23 +37,8 @@ export namespace User {
     returnCode: string;
     returnMessage: string;
   }
-//offer api
-  export  interface  OfferTypeList{
-    id: number;
-    name: string;
-    description: string;
-    status: string;
-    creationDate: Date;
-  }
 
-  export interface inquireOffersRequest{
-    userId: number;
-  }
 
-  export interface  inquireOffersResponse{
-    offerTypeList: OfferTypeList;
-    returnCode: string;
-    returnMessage: string;
-  }
+
 }
 
