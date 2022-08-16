@@ -1,7 +1,5 @@
 import {StoreOptions} from "@ngxs/store/src/symbols";
 
-
-
 export namespace  Offer {
   export const NAME = 'OfferState';
   export const DEFAULTS = {
@@ -18,19 +16,19 @@ export namespace  Offer {
     offerTypeList: OfferTypeList;
   }
   export  interface  OfferTypeList{
-    id: number;
+    id?: number;
     name: string;
     description: string;
     status: string;
     creationDate: string;
   }
 
-  export interface InquireOffersRequest{
+/*  export interface InquireOffersRequest{
     userId: number;
-  }
+  }*/
 
   export interface  InquireOffersResponse{
-    offerTypeList: OfferTypeList;
+    offerTypeList: OfferTypeList[];
     returnCode: string;
     returnMessage: string;
   }

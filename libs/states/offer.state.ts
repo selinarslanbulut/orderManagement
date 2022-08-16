@@ -24,10 +24,10 @@ export class OfferState{
   @Action(InquireOffer)
   inquireOffer(
     { patchState}: StateContext<Offer.State>,
-    payload: Offer.InquireOffersRequest) {
+    payload: number) {
     return this.offerService.inquireOffers('inquireOffer', payload).pipe(
       tap( response => {
-        console.log(response)
+        console.log('inquireOfferData',response)
 
         patchState({
           inquireOfferData: response,

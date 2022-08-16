@@ -15,13 +15,13 @@ export class CreateOffer {
 }
 export class GetOfferInfo {
   static readonly  desc = '';
-  static readonly  type = '[Offer] CreateOffer';
+  static readonly  type = '[Offer] GetOffer';
   constructor() {}
 }
 
 
 export class InquireOffer {
   static readonly  desc = '';
-  static readonly  type = '[User] InquireOffer';
-  constructor(public payload: Offer.InquireOffersRequest) {}
+  static readonly  type = '[Offer] InquireOffer';
+  constructor(public payload: number) {}
 }

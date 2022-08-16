@@ -18,9 +18,11 @@ import {RouterModule, Routes} from "@angular/router";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import { SelectedOfferPageComponent } from './selected-offer-page/selected-offer-page.component';
+import {OfferState} from "../../libs/states/offer.state";
+import {Offer} from "../../libs/models/offer";
 
 //const STATES: StateClass<any>[] | undefined = [UserState]
-const STATES = [UserState]
+const STATES = [UserState, OfferState]
 
 const appRoutes:Routes =[
   {
@@ -54,7 +56,7 @@ const appRoutes:Routes =[
     RouterModule.forRoot(appRoutes),
     MatCheckboxModule,
     NgxsModule.forFeature(STATES),
-    NgxsModule.forRoot([UserState], {
+    NgxsModule.forRoot([UserState, OfferState], {
       developmentMode: !environment.production
     }),
   ],
