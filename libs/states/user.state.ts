@@ -21,18 +21,7 @@ export class  UserState{
     return inquireUserData;
   }
 
-  @Action(GetUserInfo)
-  getUserInfo({ patchState }: StateContext<User.State>) {
-    return this.userService.getAnimalService().pipe(
-      tap(user => {
-        console.log(user)
-          patchState({
-            result: user,
-          })
-        }
-      ),
-    );
-  }
+
   @Action(InquireUser)
   inquireUser(
     { patchState }: StateContext<User.State>,
@@ -41,10 +30,6 @@ export class  UserState{
     //patchState ile response'umuzu state'e atıyoruz. Daha sonra kullanabilmek için
     return this.userService.inquireUser('inquireUser',payload).pipe(
       tap(response => {
-          console.log(response)
-/*
-          const mockResponse =
-*/
           patchState({
             inquireUserData: response,
           })

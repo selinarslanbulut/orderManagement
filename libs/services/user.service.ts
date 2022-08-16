@@ -11,12 +11,6 @@ import {map} from "rxjs/operators";
 export class  UserService {
   constructor(private  http: HttpClient) {
   }
-  configUrl1 = 'https://jsonplaceholder.typicode.com/posts';
-  configUrl = 'https://jsonplaceholder.typicode.com/';
-
-  getAnimalService(){
-     return this.http.get(this.configUrl1);
-   }
 
   inquireUser(params:string, payload: User.InquireUserRequest): Observable<User.InquireUserResponse> {
     const data$ = of({
