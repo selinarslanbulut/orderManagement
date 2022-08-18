@@ -1,4 +1,3 @@
-import {User} from "../models/user";
 import {Offer} from "../models/offer";
 
 
