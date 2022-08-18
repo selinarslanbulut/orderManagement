@@ -24,9 +24,9 @@ export class SelectedOfferPageComponent implements OnInit {
 
   ngOnInit(){
     console.log('offerdataa', this.store.selectSnapshot((SelectedOfferState.selectedOffer)))
-    this.selectOffer = this.store.selectSnapshot(SelectedOfferState.selectedOffer);
+    this.selectOffer= this.store.selectSnapshot(SelectedOfferState.selectedOffer);
     console.log('selectOffer', this.selectOffer);
-    //this.buildOfferForm();
+    this.buildOfferForm();
   }
 
   get listOfferItems(): FormArray {
@@ -43,14 +43,14 @@ export class SelectedOfferPageComponent implements OnInit {
     console.log(this.itemOfferForm)
   }
 
-  // buildOfferForm() {
-  //   this.itemOfferForm = this.fb.group({
-  //     list: this.fb.array(
-  //       this.selectOffer.map(item =>
-  //         this.fb.group(item))
-  //     ),
-  //     selectedOfferItem: []
-  //   })
-  //   console.log(this.itemOfferForm);
-  // }
+  buildOfferForm() {
+    this.itemOfferForm = this.fb.group({
+      list: this.fb.array(
+        this.selectOffer.offerCharList.map((item) =>
+          this.fb.group(item))
+      ),
+      selectedOfferItem: []
+    })
+    console.log(this.itemOfferForm);
+  }
 }
