@@ -20,9 +20,10 @@ import {RegisterComponent} from "./register/register.component";
 import { SelectedOfferPageComponent } from './selected-offer-page/selected-offer-page.component';
 import {OfferState} from "../../libs/states/offer.state";
 import {Offer} from "../../libs/models/offer";
+import {SelectedOfferState} from "../../libs/states/selectedOffer.state";
 
 //const STATES: StateClass<any>[] | undefined = [UserState]
-const STATES = [UserState, OfferState]
+const STATES = [UserState, OfferState, SelectedOfferState]
 
 const appRoutes:Routes =[
   {
@@ -56,7 +57,7 @@ const appRoutes:Routes =[
     RouterModule.forRoot(appRoutes),
     MatCheckboxModule,
     NgxsModule.forFeature(STATES),
-    NgxsModule.forRoot([UserState, OfferState], {
+    NgxsModule.forRoot([UserState, OfferState,SelectedOfferState], {
       developmentMode: !environment.production
     }),
   ],

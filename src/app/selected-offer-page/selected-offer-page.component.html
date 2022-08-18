@@ -1,22 +1,22 @@
-<!--
 <form [formGroup]="itemOfferForm">
   <div>
     <div class="container">
       <div class="row">
         <div class="col-6 left">
           <div>
-            <table  class="table table-borderless table-hover form-group" >
+            <table class="table table-borderless table-hover form-group">
               <thead style="font-size:19px;">
               <tr>
-                <th scope="col" >#</th>
-                <th scope="col" >Name</th>
-                <th scope="col" >Description</th>
-                <th scope="col" >Status</th>
-                <th scope="col" >Creation Date</th>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Status</th>
+                <th scope="col">Creation Date</th>
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let item of listOfItems.controls; let i = index" formArrayName="list" (click)="selectItem(item.value)">
+              <tr *ngFor="let item of listOfferItems.controls; let i = index" formArrayName="offerlist"
+                  (click)="selectOfferItem(item.value)">
                 <th scope="row">{{i + 1}}</th>
                 <td>{{item.value.name}}</td>
                 <td>{{item.value.description}}</td>
@@ -27,40 +27,41 @@
             </table>
           </div>
         </div>
-
-        <div class="col-6 right">
-          <table class="table table-borderless table-hover">
-            <thead style="font-size:19px;">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Description</th>
-              <th scope="col">Status</th>
-              <th scope="col">Creation Date</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>{{selectedOfItems.name}}</td>
-              <td>{{selectedOfItems.description}}</td>
-              <td>{{selectedOfItems.status}}</td>
-              <td>{{selectedOfItems.creationDate}}</td>
-            </tr>
-            </tbody>
-          </table>
+        <div class="row">
+          <div class="col-6 right">
+            <table class="table table-borderless table-hover">
+              <thead style="font-size:19px;">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">charValueId</th>
+                <th scope="col">color</th>
+                <th scope="col">memory</th>
+                <th scope="col">size</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>{{selectedOfferItems?.charValueId}}</td>
+                <td>{{selectedOfferItems?.color}}</td>
+                <td>{{selectedOfferItems?.memory}}</td>
+                <td>{{selectedOfferItems?.size}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
     <div style="padding-left: 700px;">
-      <button
-        type="submit"
-        class="btn-continue btn-secondary"
-        (click)="selectedOfferClick()">Continue
-      </button>
+      <!--      <button-->
+      <!--        type="submit"-->
+      <!--        class="btn-continue btn-secondary"-->
+      <!--        (click)="selectedOfferClick()">Continue-->
+      <!--      </button>-->
     </div>
   </div>
 </form>
 
 
--->
+
