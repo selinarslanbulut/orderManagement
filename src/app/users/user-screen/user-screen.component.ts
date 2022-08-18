@@ -13,11 +13,13 @@ import {Offer} from "../../../../libs/models/offer";
   templateUrl: './user-screen.component.html',
   styleUrls: ['./user-screen.component.css']
 })
+
 export class UserScreenComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private store: Store,
-    private router: Router) { }
+    private router: Router) {
+  }
 
   itemForm!: FormGroup;
   isUserTypeAdmin!: boolean;
@@ -27,7 +29,7 @@ export class UserScreenComponent implements OnInit {
   ngOnInit() {
     const user = this.store.selectSnapshot(UserState.user); //veriyi okuma işlemi
     const userId = 123;
-    this.store.dispatch(new InquireOffer(userId)).subscribe((response) =>{
+    this.store.dispatch(new InquireOffer(userId)).subscribe((response) => {
       console.log('InquireOffer', response);
     });
 
@@ -49,18 +51,18 @@ export class UserScreenComponent implements OnInit {
     return this.itemForm.get('selectedItem')?.value;
   }
 
-  selectItem(item: any){
+  selectItem(item: any) {
     this.itemForm.get('selectedItem')?.setValue(item);
     console.log(this.itemForm)
   }
 
-  buildForm(){
-    this.itemForm =this.fb.group({
-      list:this.fb.array(
+  buildForm() {
+    this.itemForm = this.fb.group({
+      list: this.fb.array(
         this.tableData.map(item =>
-        this.fb.group(item))
+          this.fb.group(item))
       ),
-      selectedItem:[]
+      selectedItem: []
     })
     // this.itemForm =this.fb.group(
     //   this.fb.array(
